@@ -13,7 +13,7 @@ import java.util.Iterator;
 
 public class Quest {
 
-    ArrayList<Alumno> lista = new ArrayList<Alumno>();
+    ArrayList<Jugador> lista = new ArrayList<Jugador>();
 
     private Connection connect() {
         // SQLite connection string
@@ -27,7 +27,7 @@ public class Quest {
         return conn;
     }
 
-    public ArrayList<Alumno> selectAll() throws ExcepcionSql {
+    public ArrayList<Jugador> selectAll() throws ExcepcionSql {
         String sql = "SELECT name, puntos, id FROM puntuacion";
         int exception;
         try (Connection conn = this.connect();
@@ -35,7 +35,7 @@ public class Quest {
                 ResultSet rs = stmt.executeQuery(sql)) {
 
             while (rs.next()) {
-                Alumno alum = new Alumno(rs.getInt("id"), rs.getString("name"), rs.getString("puntos"));
+                Jugador alum = new Jugador(rs.getInt("id"), rs.getString("name"), rs.getString("puntos"));
 //                alumno[2] = rs.getInt("id");
 //                alumno[0] = rs.getString("name");
 //                alumno[1] = rs.getString("puntos");

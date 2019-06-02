@@ -1,7 +1,7 @@
 
 package metodos;
 
-import baseDatos.Alumno;
+import baseDatos.Jugador;
 import baseDatos.Quest;
 import excepciones.ExcepcionSql;
 import java.util.ArrayList;
@@ -33,13 +33,13 @@ public class CargarTabla {
         //ArrayList de alumnos
         try {
 
-            ArrayList<Alumno> lista = quest.selectAll();
+            ArrayList<Jugador> lista = quest.selectAll();
 
             int contador = lista.size();
 //        System.out.println(contador);
 //        System.out.println(lista.size());
 
-            for (Alumno ele : lista) {
+            for (Jugador ele : lista) {
                 Object[] dato = {"", "", 1};
 //            System.out.println(ele.getName());
                 String name, puntos;

@@ -1,6 +1,6 @@
 package tetris;
 
-import baseDatos.Alumno;
+import baseDatos.Jugador;
 import excepciones.ExcepcionSql;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -35,7 +35,7 @@ public class Menu {
                 }
 
                 baseDatos.Quest quest = new baseDatos.Quest();
-                ArrayList<Alumno> datos = new ArrayList<Alumno>();
+                ArrayList<Jugador> datos = new ArrayList<Jugador>();
 
                 baseDatos.Delete delete = new baseDatos.Delete();
 //     delete.deleteAll(); //USAR PARA BORRAR LA BASE DE DATOS ENTERA
