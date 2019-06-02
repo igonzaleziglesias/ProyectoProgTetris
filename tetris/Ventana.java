@@ -174,7 +174,7 @@ public class Ventana extends JPanel implements ActionListener {
         contador++;
         System.out.println(contador);
         if (velocidad > 400) {
-            if ((contador == 10) && (velocidad - 200 > 0)) {
+            if ((contador == 30) && (velocidad - 200 > 0)) {
                 timer.stop();
                 velocidad = velocidad - 200;
                 timer = new Timer(velocidad, this);
@@ -182,7 +182,7 @@ public class Ventana extends JPanel implements ActionListener {
                 System.out.println("Velocidad: " + velocidad);
                 timer.start();
             }
-            if ((contador == 20) && (velocidad - 200 > 0)) {
+            if ((contador == 50) && (velocidad - 200 > 0)) {
                 timer.stop();
                 velocidad = velocidad - 200;
                 timer = new Timer(velocidad, this);
@@ -192,7 +192,7 @@ public class Ventana extends JPanel implements ActionListener {
             }
         }
         if (velocidad > 200) {
-            if ((contador == 30) && (velocidad - 200 > 0)) {
+            if ((contador == 70) && (velocidad - 200 > 0)) {
                 timer.stop();
                 velocidad = velocidad - 200;
                 timer = new Timer(velocidad, this);
@@ -315,15 +315,25 @@ public class Ventana extends JPanel implements ActionListener {
 
         if (numeroLineasEnterasPorTurnos > 0) {//si hay mas de una linea borra varias y suma el numero de lineas borradas a la puntuacion
             
-            numLineasBorradas += numeroLineasEnterasPorTurnos;
+//            numLineasBorradas += numeroLineasEnterasPorTurnos;
+            if ((velocidad <= 400) && (velocidad > 100)) {
+                numLineasBorradas += numeroLineasEnterasPorTurnos*2;
+            }else if ((velocidad == 100)) {
+                numLineasBorradas += numeroLineasEnterasPorTurnos*3;
+            }else{
+                numLineasBorradas += numeroLineasEnterasPorTurnos;
+            }
+            
+            
             //varia la puntuacion dependiendo de la velocidad
             marcador.setText(String.valueOf(numLineasBorradas * 10));
-            if ((velocidad <= 400) && (velocidad > 100)) {
-                marcador.setText(String.valueOf(numLineasBorradas * 20));
-            }
-            if ((velocidad == 100)) {
-                marcador.setText(String.valueOf(numLineasBorradas * 30));
-            }
+            
+//            if ((velocidad <= 400) && (velocidad > 100)) {
+//                marcador.setText(String.valueOf(numLineasBorradas * 20));
+//            }
+//            if ((velocidad == 100)) {
+//                marcador.setText(String.valueOf(numLineasBorradas * 30));
+//            }
             finalizoQuitarFilas = true;
 //            System.out.println(numeroLineasEnterasPorTurnos);
             if ((numeroLineasEnterasPorTurnos == 4)&&(pascua)) {
