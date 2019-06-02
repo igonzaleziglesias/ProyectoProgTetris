@@ -71,17 +71,7 @@ public class Ventana extends JPanel implements ActionListener {
         }
     }
 
-    int anchoPieza() {//dar ancho
-        return (int) getSize().getWidth() / anchoTablero;
-    }
 
-    int alturaPieza() {//dar altura
-        return (int) getSize().getHeight() / altoTablero;
-    }
-
-    PiezasTetris dimensionar(int x, int y) {
-        return piezas[(y * anchoTablero) + x];
-    }
 
     public void startGame() {
         if (pausa) {
@@ -115,7 +105,19 @@ public class Ventana extends JPanel implements ActionListener {
         }
         repaint();
     }
+    
+    int anchoPieza() {//dar ancho
+        return (int) getSize().getWidth() / anchoTablero;
+    }
 
+    int alturaPieza() {//dar altura
+        return (int) getSize().getHeight() / altoTablero;
+    }
+
+    PiezasTetris dimensionar(int x, int y) {
+        return piezas[(y * anchoTablero) + x];
+    }
+    
     @Override
     public void paint(Graphics g) { //clase para dar color y colocar la pieza en el tablero
         super.paint(g);
@@ -168,7 +170,7 @@ public class Ventana extends JPanel implements ActionListener {
         }
     }
 
-    private void nuevaPieza() {
+    private void nuevaPieza() {//generar nueva pieza y comprobar si termina partida
         contador++;
         System.out.println(contador);
         if (velocidad > 400) {
@@ -312,7 +314,9 @@ public class Ventana extends JPanel implements ActionListener {
         }
 
         if (numeroLineasEnterasPorTurnos > 0) {//si hay mas de una linea borra varias y suma el numero de lineas borradas a la puntuacion
+            
             numLineasBorradas += numeroLineasEnterasPorTurnos;
+            //varia la puntuacion dependiendo de la velocidad
             marcador.setText(String.valueOf(numLineasBorradas * 10));
             if ((velocidad <= 400) && (velocidad > 100)) {
                 marcador.setText(String.valueOf(numLineasBorradas * 20));
