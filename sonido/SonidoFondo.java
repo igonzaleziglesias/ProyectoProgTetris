@@ -15,7 +15,7 @@ public class SonidoFondo extends Thread {
                 sonido = AudioSystem.getClip();
 //                File a = new File("C:\\Users\\Usuario\\Desktop\\tetris.wav");//pc casa
 //                File a = new File("/home/s7orm/Escritorio/tetris.wav");//pc portatil
-            File a = new File("/home/local/DANIELCASTELAO/igonzaleziglesias/Escritorio/tetris.wav");//pc clase
+            File a = new File("/home/local/DANIELCASTELAO/igonzaleziglesias/NetBeansProjects/tetrisDesc/ProyectoProgTetris/wavs/tetris.wav");//pc clase
                 sonido.open(AudioSystem.getAudioInputStream(a));
                 sonido.start();
                 Thread.sleep(25500); // (30segundos)
