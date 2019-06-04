@@ -24,15 +24,15 @@ public class ElegirNivel {
 
                 case 0:
                     tiempo = 800;
-                    System.out.println(tiempo);
+                    System.out.println("Velocidad: "+tiempo);
                     break;
                 case 1:
                     tiempo = 400;
-                    System.out.println(tiempo);
+                    System.out.println("Velocidad: "+tiempo);
                     break;
                 case 2:
                     tiempo = 100;
-                    System.out.println(tiempo);
+                    System.out.println("Velocidad: "+tiempo);
                     break;
             }
         } while (tiempo == 0);
